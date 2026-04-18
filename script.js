@@ -3,23 +3,23 @@ const searchBtn = document.getElementById('search-btn');
 const geoBtn = document.getElementById('geo-btn');
 const cityInput = document.getElementById('city-input');
 const weatherResult = document.getElementById('weather-result');
-const weatherCard = document.getElementById('weather-card'); // تعديل: جلبنا الكارت
+const weatherCard = document.getElementById('weather-card'); 
 
 // دالة لجلب الأيقونة الرهيبة (باستخدام FontAwesome)
 function getIconClass(weatherId) {
-    if (weatherId >= 200 && weatherId < 300) return 'thunderstorm'; // رعد
-    if (weatherId >= 300 && weatherId < 600) return 'rain'; // مطر
-    if (weatherId >= 600 && weatherId < 700) return 'snow'; // ثلج
-    if (weatherId >= 700 && weatherId < 800) return 'atmosphere'; // غبار/ضباب
-    if (weatherId === 800) return 'clear'; // صافي
-    if (weatherId > 800) return 'clouds'; // غيوم
+    if (weatherId >= 200 && weatherId < 300) return 'thunderstorm';
+    if (weatherId >= 300 && weatherId < 600) return 'rain';
+    if (weatherId >= 600 && weatherId < 700) return 'snow'; 
+    if (weatherId >= 700 && weatherId < 800) return 'atmosphere'; 
+    if (weatherId === 800) return 'clear'; 
+    if (weatherId > 800) return 'clouds'; 
     return 'unknown';
 }
 
 // دالة لتحديث خلفية الكارت (عشان يصير فخم)
 function updateWeatherCard(weatherMain) {
-    weatherCard.className = 'weather-card'; // إعادة تعيين الكلاسات
-    weatherCard.classList.add(weatherMain.toLowerCase()); // إضافة كلاس حالة الجو
+    weatherCard.className = 'weather-card'; 
+    weatherCard.classList.add(weatherMain.toLowerCase()); 
 }
 
 // دالة البحث الموحدة
@@ -39,7 +39,7 @@ async function fetchWeatherData(url) {
 }
 function displayWeather(data) {
     const iconCode = data.weather[0].icon; // كود الأيقونة من API
-    const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@4x.png`; // رابط الصورة
+    const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@4x.png`; 
 
     weatherResult.innerHTML = `
         <h2 style="color: #00f2ff; margin-bottom: 5px;">${data.name}</h2>
